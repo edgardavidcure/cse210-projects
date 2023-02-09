@@ -1,9 +1,28 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+namespace classes
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello Develop03 World!");
+        static void Main(string[] args)
+            {
+            Console.Write("Enter the reference of the scripture: ");
+            string reference = Console.ReadLine();
+
+            Console.Write("Enter the text of the scripture: ");
+            string text = Console.ReadLine();
+
+            Scripture scripture = new Scripture(reference, text);
+            Word game = new Word(scripture);
+            game.Play();
+        }
+
     }
 }
+
+
+
+
+
+
