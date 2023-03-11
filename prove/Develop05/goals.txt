@@ -1,0 +1,4 @@
+2300
+SimpleGoal:|play soccer|play soccer often|200|True|200
+EternalGoal:|study|study every day|300|True|300
+ChecklistGoal:|go to school|go to class|400|1000/2|2|True|1800
