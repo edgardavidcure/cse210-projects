@@ -1,8 +1,9 @@
-public class LoseWeightPlan : Plan{
+public class LoseWeightPlan : Plan
+{
     LoseWeightDiet diet = new LoseWeightDiet();
     LoseWeightWorkout workout = new LoseWeightWorkout();
     public override void MakePlan()
-    {   
+    {
         Console.Clear();
         SetPlanName("Weight loss Plan");
         SetPlanDescription("This plan consists of a healthy diet and workout exercises to help you lose weight.");
@@ -17,7 +18,8 @@ public class LoseWeightPlan : Plan{
         Console.WriteLine();
         Console.WriteLine("Press enter to continue");
         Console.ReadLine();
-        for (int i = 0; i < GetDaysDesired(); i++){
+        for (int i = 0; i < GetDaysDesired(); i++)
+        {
             DisplayHoldAnimation();
             Console.WriteLine($"Meal number {i + 1}:");
             Console.WriteLine();
@@ -29,14 +31,17 @@ public class LoseWeightPlan : Plan{
         Console.WriteLine("Press Enter to continue");
         Console.ReadLine();
         DisplayHoldAnimation();
-        for (int i = 0; i < GetDaysDesired(); i++){
+        for (int i = 0; i < GetDaysDesired(); i++)
+        {
             Console.WriteLine($"Workout number {i + 1}:");
             Console.WriteLine();
             workout.CreateWorkout();
             Console.Clear();
         }
     }
-    public override void DisplayPlan(){
+    public override void DisplayPlan()
+    {
+        Console.Clear();
         Console.WriteLine("Your plan:");
         Console.WriteLine();
         Console.WriteLine("             -----Diet Plan-----");
@@ -45,5 +50,15 @@ public class LoseWeightPlan : Plan{
         Console.WriteLine("             -----Workout Plan-----");
         workout.DisplayWorkout();
     }
-    
+
+    public List<string> GetMealPlan()
+    {
+        return diet.GetLoseWeightMeal();
+    }
+
+    public List<List<string>> GetWorkoutPlan()
+    {
+        return workout.GetLoseWeightWorkouts();
+    }
+
 }

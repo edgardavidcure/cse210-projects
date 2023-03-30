@@ -8,35 +8,43 @@ public class GainWeightWorkout : Workout
     protected List<List<string>> _workoutSessions = new List<List<string>>();
 
     //public GainWeightWorkout(){
-       //List<List<List<string>>> _Sessions = new List<List<List<string>>>();
-       //_Sessions.Add(_workoutSessions);
+    //List<List<List<string>>> _Sessions = new List<List<List<string>>>();
+    //_Sessions.Add(_workoutSessions);
     //}
 
-    public void ChooseExerciseTypes(){
+    public void ChooseExerciseTypes()
+    {
         int valid = 0;
-        while (valid < 2){
-            if (valid == 0){
+        while (valid < 2)
+        {
+            if (valid == 0)
+            {
                 Console.WriteLine("Please select at least 2 different types of exercise");
-            } else if (valid == 1){
-                Console.WriteLine("Please select at least another type of exercise");
-                
             }
-            
+            else if (valid == 1)
+            {
+                Console.WriteLine("Please select at least another type of exercise");
+
+            }
+
             Console.WriteLine($"Exercise types available: ");
             int index = 1;
-            foreach (string item in _exerciseTypes){
+            foreach (string item in _exerciseTypes)
+            {
                 Console.WriteLine($"{index}. {item}");
                 index++;
             }
             Console.WriteLine("Please select one: ");
             int selection = int.Parse(Console.ReadLine()) - 1;
             Console.Clear();
-            if (selection == 0){
+            if (selection == 0)
+            {
                 SetExerciseDuration(10);
                 ChooseCardioExercise();
                 valid++;
-            } 
-            else if (selection == 1){
+            }
+            else if (selection == 1)
+            {
                 SetRepetitions(8);
                 SetSets(6);
                 SetWorkoutLenght(60);
@@ -45,7 +53,8 @@ public class GainWeightWorkout : Workout
                 valid++;
 
             }
-            else if( selection == 2){
+            else if (selection == 2)
+            {
                 SetRepetitions(8);
                 SetSets(6);
                 SetWorkoutLenght(60);
@@ -56,46 +65,57 @@ public class GainWeightWorkout : Workout
             Console.Clear();
 
         }
-        
+
     }
 
 
-    public void ChooseCardioExercise(){
+    public void ChooseCardioExercise()
+    {
         Console.WriteLine($"Cardio exercises available: ");
         int index = 1;
-        foreach (string item in _cardioExercises){
+        foreach (string item in _cardioExercises)
+        {
             Console.WriteLine($"{index}. {item}");
             index++;
         }
         Console.WriteLine();
         Console.WriteLine($"Enter the Cardio exercise desired by number: ");
         int selection = int.Parse(Console.ReadLine()) - 1;
-        if (selection < _cardioExercises.Count){
+        if (selection < _cardioExercises.Count)
+        {
             _desiredCardio.Add($"{_cardioExercises[selection]} - {GetExerciseDuration()} min");
-        } else{
+        }
+        else
+        {
             Console.WriteLine("Wrong selection, please try again.");
         }
         Console.Clear();
 
     }
 
-    public void ChooseWeightLiftingExercise(){
+    public void ChooseWeightLiftingExercise()
+    {
         int valid = 0;
-        while (valid < 4){
+        while (valid < 4)
+        {
             Console.WriteLine($"You have selected {valid}/4 exercises");
             Console.WriteLine();
             Console.WriteLine($"Weight Lifting exercises available: ");
             int index = 1;
-            foreach (string item in _weightsExercises){
+            foreach (string item in _weightsExercises)
+            {
                 Console.WriteLine($"{index}. {item}");
                 index++;
             }
             Console.WriteLine();
             Console.WriteLine($"Enter the Weight Lifting exercise desired by number: ");
             int selection = int.Parse(Console.ReadLine()) - 1;
-            if (selection < _weightsExercises.Count){
+            if (selection < _weightsExercises.Count)
+            {
                 _desiredWeightsWorkout.Add($"{_weightsExercises[selection]} - {GetRepetitions()} reps/{GetSets()} sets - {GetPoundsToLift()} pounds");
-            } else{
+            }
+            else
+            {
                 Console.WriteLine("Wrong selection, please try again.");
             }
             Console.Clear();
@@ -103,26 +123,32 @@ public class GainWeightWorkout : Workout
 
         }
 
-        
+
 
     }
-    public void ChooseMachineExercise(){
+    public void ChooseMachineExercise()
+    {
         int valid = 0;
-        while (valid < 4){
+        while (valid < 4)
+        {
             Console.WriteLine($"You have selected {valid}/4 exercises");
             Console.WriteLine();
             Console.WriteLine($"Gym Machine exercises available: ");
             int index = 1;
-            foreach (string item in _machineExercises){
+            foreach (string item in _machineExercises)
+            {
                 Console.WriteLine($"{index}. {item}");
                 index++;
             }
             Console.WriteLine();
             Console.WriteLine($"Enter the Gym Machine exercise desired by number: ");
             int selection = int.Parse(Console.ReadLine()) - 1;
-            if (selection < _machineExercises.Count){
+            if (selection < _machineExercises.Count)
+            {
                 _desiredMachineWorkout.Add($"{_machineExercises[selection]} - {GetRepetitions()} reps/{GetSets()} sets - {GetPoundsToLift()} pounds");
-            } else{
+            }
+            else
+            {
                 Console.WriteLine("Wrong selection, please try again.");
             }
             Console.Clear();
@@ -132,48 +158,60 @@ public class GainWeightWorkout : Workout
 
     }
 
-    public void SaveWorkoutSession(){
-    List<string> workoutSession = new List<string>();
-    if (_desiredCardio.Count > 0) {
-        workoutSession.Add("Cardio:");
-        foreach (string session in _desiredCardio){
-            workoutSession.Add($"    - {session}");
+    public void SaveWorkoutSession()
+    {
+        List<string> workoutSession = new List<string>();
+        if (_desiredCardio.Count > 0)
+        {
+            workoutSession.Add("Cardio:");
+            foreach (string session in _desiredCardio)
+            {
+                workoutSession.Add($"    - {session}");
+            }
+            _desiredCardio.Clear();
         }
-        _desiredCardio.Clear();
-    }
-    if (_desiredWeightsWorkout.Count > 0){
-        workoutSession.Add("Weight Lifting Exercises:");
-        foreach (string session in _desiredWeightsWorkout){
-            workoutSession.Add($"    - {session}");
+        if (_desiredWeightsWorkout.Count > 0)
+        {
+            workoutSession.Add("Weight Lifting Exercises:");
+            foreach (string session in _desiredWeightsWorkout)
+            {
+                workoutSession.Add($"    - {session}");
+            }
+            _desiredWeightsWorkout.Clear();
         }
-        _desiredWeightsWorkout.Clear();
-    }
-    if (_desiredMachineWorkout.Count > 0){
-        workoutSession.Add("Gym Machine Exercises:");
-        foreach(string session in _desiredMachineWorkout){
-            workoutSession.Add($"    - {session}");
+        if (_desiredMachineWorkout.Count > 0)
+        {
+            workoutSession.Add("Gym Machine Exercises:");
+            foreach (string session in _desiredMachineWorkout)
+            {
+                workoutSession.Add($"    - {session}");
+            }
+            _desiredMachineWorkout.Clear();
         }
-        _desiredMachineWorkout.Clear();
-    }
-        
-    _workoutSessions.Add(workoutSession);
-}
 
-    public override void DisplayWorkout(){
-    for (int i = 0; i < _workoutSessions.Count; i++){
-        Console.WriteLine();
-        Console.WriteLine($"Workout #{i + 1}:");
-        foreach (string workout in _workoutSessions[i]){
-            Console.WriteLine($"    {workout}");
-        }
-        Console.WriteLine();
+        _workoutSessions.Add(workoutSession);
+        SetGainWeightWorkouts(_workoutSessions);
+
     }
-}
+
+    public override void DisplayWorkout()
+    {
+        for (int i = 0; i < _workoutSessions.Count; i++)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Workout #{i + 1}:");
+            foreach (string workout in _workoutSessions[i])
+            {
+                Console.WriteLine($"    {workout}");
+            }
+            Console.WriteLine();
+        }
+    }
     public override void CreateWorkout()
     {
-        
+
         ChooseExerciseTypes();
-        SaveWorkoutSession();        
+        SaveWorkoutSession();
     }
 
 }

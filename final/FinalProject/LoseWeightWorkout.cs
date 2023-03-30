@@ -156,6 +156,7 @@ public class LoseWeightWorkout : Workout
     }
         
     _workoutSessions.Add(workoutSession);
+    SetLoseWeightWorkouts(_workoutSessions);
 }
 
     public override void DisplayWorkout(){

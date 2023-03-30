@@ -1,48 +1,58 @@
 public abstract class Workout
 {
     protected int _workoutLenght;
-    public int GetWorkoutLenght(){
+    public int GetWorkoutLenght()
+    {
         return _workoutLenght;
     }
-    public void SetWorkoutLenght(int lenght){
+    public void SetWorkoutLenght(int lenght)
+    {
         _workoutLenght = lenght;
     }
 
 
     protected int _exerciseDuration;
 
-    public int GetExerciseDuration(){
+    public int GetExerciseDuration()
+    {
         return _exerciseDuration;
     }
-    public void SetExerciseDuration(int duration){
+    public void SetExerciseDuration(int duration)
+    {
         _exerciseDuration = duration;
     }
 
 
     protected int _sets;
 
-    public int GetSets(){
+    public int GetSets()
+    {
         return _sets;
     }
-    public void SetSets(int sets){
+    public void SetSets(int sets)
+    {
         _sets = sets;
     }
-    
+
 
     protected int _repetitions;
-    public int GetRepetitions(){
+    public int GetRepetitions()
+    {
         return _repetitions;
     }
-    public void SetRepetitions(int repetitions){
+    public void SetRepetitions(int repetitions)
+    {
         _repetitions = repetitions;
     }
 
 
     protected int _poundsToLift;
-    public int GetPoundsToLift(){
+    public int GetPoundsToLift()
+    {
         return _poundsToLift;
     }
-    public void SetPoundsToLift(int pounds){
+    public void SetPoundsToLift(int pounds)
+    {
         _poundsToLift = pounds;
     }
 
@@ -80,25 +90,29 @@ public abstract class Workout
         "Triceps Pushdown"
     };
 
-    protected List <string> _loseWeightWorkouts = new List<string>();
-    public List<string> GetLoseWeightWorkouts(){
+    protected List<List<string>> _loseWeightWorkouts = new List<List<string>>();
+    public List<List<string>> GetLoseWeightWorkouts()
+    {
         return _loseWeightWorkouts;
     }
-    public void SetLoseWeightWorkouts(List<string> loseWeightWorkout){
+    public void SetLoseWeightWorkouts(List<List<string>> loseWeightWorkout)
+    {
         _loseWeightWorkouts = loseWeightWorkout;
     }
 
 
 
-    protected List <string> _gainWeightWorkouts = new List<string>();
-    public List<string> GetGainWeightWorkouts(){
+    protected List<List<string>> _gainWeightWorkouts = new List<List<string>>();
+    public List<List<string>> GetGainWeightWorkouts()
+    {
         return _gainWeightWorkouts;
     }
-    public void SetGainWeightWorkouts(List<string> gainWeightWorkout){
+    public void SetGainWeightWorkouts(List<List<string>> gainWeightWorkout)
+    {
         _gainWeightWorkouts = gainWeightWorkout;
     }
 
-    
+
 
     public abstract void CreateWorkout();
     public abstract void DisplayWorkout();

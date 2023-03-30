@@ -1,3 +1,5 @@
+
+using FinalProject;
 public abstract class Diet
 {
     protected List<string> _vegetables = new List<string>{
@@ -46,20 +48,24 @@ public abstract class Diet
 
     protected List<string> _loseWeightMeals = new List<string>();
 
-    public List<string> GetLoseWeightMeal(){
+    public List<string> GetLoseWeightMeal()
+    {
         return _loseWeightMeals;
     }
-    public void SetLoseWeightMeal(string meal){
+    public void SetLoseWeightMeal(string meal)
+    {
         _loseWeightMeals.Add(meal);
     }
 
 
 
-    protected List <string> _gainWeightMeals = new List<string>();
-    public List<string> GetGainWeightMeal(){
+    protected List<string> _gainWeightMeals = new List<string>();
+    public List<string> GetGainWeightMeal()
+    {
         return _gainWeightMeals;
     }
-    public void SetGainWeightMeal(string meal){
+    public void SetGainWeightMeal(string meal)
+    {
         _gainWeightMeals.Add(meal);
     }
 
@@ -71,14 +77,16 @@ public abstract class Diet
 
     public abstract void DisplayMeal();
 
-    public void DisplayHoldAnimation(){
+    public void DisplayHoldAnimation()
+    {
         Console.Clear();
-        string[] spinner = {"-","|", "/" };
-        for (int i = 0; i < 5; i++ ){
+        string[] spinner = { "-", "|", "/" };
+        for (int i = 0; i < 5; i++)
+        {
             Console.Write(spinner[i % spinner.Length]);
             Thread.Sleep(500);
-            Console.SetCursorPosition(Console.CursorLeft -1, Console.CursorTop);
+            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
         }
     }
-        
+
 }

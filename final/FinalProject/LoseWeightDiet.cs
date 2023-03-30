@@ -34,7 +34,7 @@ public class LoseWeightDiet : Diet
     }
 
     public override void SaveMeal(){
-        SetLoseWeightMeal($"Meal: {_desiredProtein} with {_desiredCarb} and {_desiredVegetable}, optional dessert: {_desiredFruit} ");
+        SetLoseWeightMeal($"{_desiredProtein} with {_desiredCarb} and {_desiredVegetable}, optional dessert: {_desiredFruit} ");
     }
 
 
