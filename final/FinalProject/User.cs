@@ -8,6 +8,7 @@ public class User
 
 
     public void CreateUser(){
+        DisplayHoldAnimation();
         Console.WriteLine("Welcome to the healthy team! We are committed to help you achieve your goals.");
         Console.WriteLine("What is your name?");
         _userName = Console.ReadLine();
@@ -16,6 +17,8 @@ public class User
         Console.WriteLine($"Thank you {_userName}! Now let's talk about business... Do you want to lose weight or gain weight? (Enter letter 'L' or 'G')");
         _userDesire = Console.ReadLine();
         while (true){
+            DisplayHoldAnimation();
+
             if (_userDesire == "L" || _userDesire == "l"){
                 loseWeight.MakePlan();
                 break;
@@ -43,7 +46,18 @@ public class User
         } else {
             Console.WriteLine("You must create a new plan first.");
         }
+        Console.WriteLine();
+        Console.WriteLine("Press enter to go back to the main menu");
+        Console.ReadLine();
     }
-
+    public void DisplayHoldAnimation(){
+        Console.Clear();
+        string[] spinner = {"-","|", "/" };
+        for (int i = 0; i < 5; i++ ){
+            Console.Write(spinner[i % spinner.Length]);
+            Thread.Sleep(500);
+            Console.SetCursorPosition(Console.CursorLeft -1, Console.CursorTop);
+        }
+    }
 
 }

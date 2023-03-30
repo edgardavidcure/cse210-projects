@@ -44,7 +44,7 @@ public abstract class Diet
         "Plantain"
     };
 
-    protected List <string> _loseWeightMeals = new List<string>();
+    protected List<string> _loseWeightMeals = new List<string>();
 
     public List<string> GetLoseWeightMeal(){
         return _loseWeightMeals;
@@ -70,5 +70,15 @@ public abstract class Diet
     public abstract void SaveMeal();
 
     public abstract void DisplayMeal();
+
+    public void DisplayHoldAnimation(){
+        Console.Clear();
+        string[] spinner = {"-","|", "/" };
+        for (int i = 0; i < 5; i++ ){
+            Console.Write(spinner[i % spinner.Length]);
+            Thread.Sleep(500);
+            Console.SetCursorPosition(Console.CursorLeft -1, Console.CursorTop);
+        }
+    }
         
 }

@@ -12,6 +12,14 @@ public class LoseWeightWorkout : Workout
     public void ChooseExerciseTypes(){
         int valid = 0;
         while (valid < 3){
+            if (valid == 0){
+                Console.WriteLine("Please select at least 3 different types of exercise");
+
+            } else if (valid == 1){
+                Console.WriteLine("Please select at least 2 more types of exercise");
+            } else {
+                Console.WriteLine("Please select at least another type of exercise");
+            }
             Console.WriteLine($"Exercise types available: ");
             int index = 1;
             foreach (string item in _exerciseTypes){
@@ -72,6 +80,8 @@ public class LoseWeightWorkout : Workout
     public void ChooseWeightLiftingExercise(){
         int valid = 0;
         while (valid < 3){
+            Console.WriteLine($"You have selected {valid}/3 exercises");
+            Console.WriteLine();
             Console.WriteLine($"Weight Lifting exercises available: ");
             int index = 1;
             foreach (string item in _weightsExercises){
@@ -97,6 +107,8 @@ public class LoseWeightWorkout : Workout
     public void ChooseMachineExercise(){
         int valid = 0;
         while (valid < 3){
+            Console.WriteLine($"You have selected {valid}/3 exercises");
+            Console.WriteLine();
             Console.WriteLine($"Gym Machine exercises available: ");
             int index = 1;
             foreach (string item in _machineExercises){
@@ -147,8 +159,8 @@ public class LoseWeightWorkout : Workout
 }
 
     public override void DisplayWorkout(){
-    Console.WriteLine("Here is a list of your workout sessions to lose weight: ");
     for (int i = 0; i < _workoutSessions.Count; i++){
+        Console.WriteLine();
         Console.WriteLine($"Workout #{i + 1}:");
         foreach (string workout in _workoutSessions[i]){
             Console.WriteLine($"    {workout}");

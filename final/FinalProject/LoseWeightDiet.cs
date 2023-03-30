@@ -40,11 +40,13 @@ public class LoseWeightDiet : Diet
 
     public override void DisplayMeal(){
         int index = 1;
-        Console.WriteLine("Here is a list of your meals to lose weight: ");
         foreach (string meal in _loseWeightMeals){
             Console.WriteLine($"{index}. {meal}");
             index++;
         }
+        Console.WriteLine();
+        Console.WriteLine();
+
     }
     
 }
